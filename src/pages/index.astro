@@ -1,0 +1,132 @@
+---
+
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Footer from '../components/Footer.astro';
+import civilizations from "../data/civilizations.json";
+
+---
+
+<Layout>
+	<Header></Header>
+	<Hero></Hero>
+
+	<section class="cards">
+
+		<h2 class="cards__h2">
+			Included with Age of Empires IV Anniversary Edition
+		</h2>
+
+		<div class="cards__container">
+			{civilizations.map((item) => (
+			<a href={`/civilizations/${item.name}`} class="slug__card">
+				<div class="card">
+					<div class="card__img__div">
+						<img src={item['civilization-image']} alt={item.name} class="card__fondo__img"/>
+					</div>
+
+					<div class="card__footer">
+						<div class="card__footer__flag__div">
+							<img src={item['flag-image']} alt={item.name} class="card__flag"/>
+						</div>
+
+						<div class="card__footer__civ__div">
+							<p class="card__p">{item.name}</p>
+						</div>
+					</div>
+				</div>
+			</a>
+			))}
+		</div>
+	</section>
+
+	<Footer></Footer>
+</Layout>
+
+<style>
+
+.cards{
+	max-width: 1580px;
+	margin: 0 auto;
+	padding: 2rem;
+}
+
+.cards__h2{
+	font-size: 2rem;
+	font-family: var(--font-primary);
+	padding-bottom: 2rem;
+}
+
+{/* PADRE DE CARTAS */}
+.cards__container{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+}
+
+{/* CARTA */}
+.slug__card a{
+	text-decoration: none;
+	color: var(--color-golden-light);
+}
+.card{
+	width: 250px;
+	border: 2px solid transparent;
+}
+.card:hover{
+    box-shadow: 0 5px 10px 0 var(--color-golden-light);
+	transform: scale(1.05);
+	transition: all 0.33s ease;
+}
+.card:active{
+    box-shadow: 0 5px 10px 0 var(--color-light);
+	transform: scale(1);
+	transition: all 0.33s ease;
+}
+
+.card__img__div{
+	width: 100%;
+}
+.card__fondo__img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.card__footer{
+	width: 100%;
+	height: 44px;
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	background: linear-gradient( 180deg , rgba(0, 62, 100, 1) 0% , rgba(0, 29, 52, 1) 100% ), url(/img/fondo_subnav.webp);
+	background-blend-mode: overlay;
+	gap: 1rem;
+}
+
+.card__footer__flag__div{
+	height: 44px;
+	padding: 12px;
+	background: linear-gradient( 180deg , rgba(0, 62, 100, 1) 0% , rgba(0, 29, 52, 1) 100% );
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.card__flag{
+	width: 36px;
+	height: 20px;
+}
+.card__p{
+	text-align: center;
+	color: rgba(255, 223, 145, 1);
+	font-family: var(--font-primary);
+	font-size: 16px;
+	font-weight: 400;
+	text-decoration: none;
+}
+
+
+</style>

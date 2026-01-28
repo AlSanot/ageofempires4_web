@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="gl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Exercicio 87</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+
+* {
+	margin: 0px;
+	padding: 0px;
+	outline: 0px;
+	box-sizing: border-box;
+}
+
+:root{
+	--color-background: rgba(24, 28, 41, 1);
+	--color-blue-midnight: rgba(0, 29, 52, 1);
+	--color-dark: rgba(0, 0, 0, 1);
+	--color-golden-dark: rgba(171, 125, 42, 1);
+	--color-golden-light: rgba(255, 223, 145, 1);
+	--color-gradient-navbar: rgba(118, 124, 146, 0.398035386029412);
+	--color-light: rgba(255, 255, 255, 1);
+	--color-links: rgba(83, 219, 221, 1);
+	--color-text-details: rgba(199, 199, 199, 1);
+
+	--color-fuente1: #ffffff ;
+
+	--font-primary: Miola-Regular;
+	--font-secondary: Notosans-Variable;
+}
+
+html {
+	font-size: 16px;
+	scroll-behavior: smooth;
+}
+
+@font-face {
+	font-family: Miola-Regular;
+	src: url(/fonts/miola.otf);
+}
+@font-face {
+	font-family: Notosans-Variable;
+	src: url(/fonts/NotoSans-VariableFont_wdth_wght.ttf);
+}
+
+body {
+	background: var(--color-background);
+	/* background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat; */
+	width: 100vw;
+	overflow: auto;
+	color: var(--color-golden-light);
+	-webkit-font-smoothing: antialiased;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+body, input, button {
+	font-family: var(--font-primary);
+}
+
+button {
+	cursor: pointer;
+	background: transparent;
+	color: var(--color-fuente1);
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 0px solid var(--color-fuente1);
+	outline-offset: -1px;
+}
+/* button:hover{
+	box-shadow: 0 5px 10px 0 var(--color-fuente1);
+	transform: scale(1.05);
+	transition: all 0.33s ease;
+}
+button:active{
+	box-shadow: 0 2px 10px 0 rgb(255, 72, 0);
+	transform: scale(1);
+	outline-offset: -2px;
+} */
+
+</style>

@@ -1,0 +1,56 @@
+<section class="hero">
+    <div class="hero__title">
+        <div class="hero__box">
+            <img src="/icons/civilizations.svg" alt="" class="hero__box__img"/>
+            <h1 class="hero__box__h1">Civilizations</h1>
+        </div>
+    </div>
+</section>
+
+<style>
+
+.hero{
+    width: 100vw;
+    height: 192px;
+    background: url(/img/default-title-bg.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 3px solid;
+    border-image: linear-gradient(150deg , rgba(0, 0, 0, 0) 0% , rgba(184, 134, 45, 1) 50% , rgba(184, 134, 45, 0) 100% ) 1;
+}
+
+.hero__title{
+    min-width: 1104px;
+    height: 93px;
+    background: linear-gradient( 90deg , rgba(4, 32, 59, 0) 0% , rgba(0, 29, 52, 1) 33% , rgba(0, 29, 52, 1) 66% , rgba(4, 32, 59, 0) 100% );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid;
+    border-image: linear-gradient(150deg , rgba(0, 0, 0, 0) 0% , rgba(184, 134, 45, 1) 50% , rgba(184, 134, 45, 0) 100% ) 1;
+}
+.hero__box{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.hero__box__img{
+    width: 44.72px;
+    height: 45px;
+    position: relative;
+    bottom: 5px;
+}
+.hero__box__h1{
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: 100;
+    font-size: 48px;
+}
+
+</style>

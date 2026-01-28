@@ -1,0 +1,84 @@
+<footer class="footer">
+    <div class="footer__logo">
+        <img src="/ageofempires-logo.webp" alt="" class="footer__logo__img"/>
+    </div>
+    <div class="footer__menu">
+        <nav class="footer__nav">
+            <a href="" class="footer__a">Manage Cookies</a>
+            <a href="" class="footer__a">Terms of Use</a>
+            <a href="" class="footer__a">Trademarks</a>
+            <a href="" class="footer__a">Privacy and Cookies</a>
+            <a href="" class="footer__a">Consumer Health Privacy</a>
+            <a href="" class="footer__a">Code of Conduct</a>
+            <a href="" class="footer__a">World’s Edge Careers</a>
+        </nav>
+        <p class="footer__p">© 2026 Microsoft. All rights reserved.</p>
+    </div>
+</footer>
+
+<style>
+
+.footer{
+    width: 100vw;
+    min-height: 452px;
+    border-top: 3px solid;
+    border-image: linear-gradient(150deg , rgba(0, 0, 0, 0) 0% , rgba(184, 134, 45, 1) 50% , rgba(184, 134, 45, 0) 100% ) 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-dark);
+    background-image: url(/img/swoosh.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    gap: 120px;
+}
+
+.footer__logo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3rem;
+}
+.footer__logo__img{
+    width: clamp(365px, 50%, 708px);
+}
+
+.footer__menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    padding: 30px 0px;
+}
+.footer__nav{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+.footer__a{
+    text-align: center;
+    color: var(--color-links);
+    font-family: var(--font-secondary);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.footer__p{
+    text-align: center;
+    color: var(--color-light);
+    font-family: var(--font-secondary);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+</style>

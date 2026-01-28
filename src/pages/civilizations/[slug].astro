@@ -1,0 +1,150 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
+import Footer from '../../components/Footer.astro';
+import civilizations from "../../data/civilizations.json";
+
+export async function getStaticPaths() {
+
+    return civilizations.map ((civ) => {
+        return {
+            params: {slug: civ.name},
+            props: {civ},
+        };
+    });
+}
+
+const {civ} = Astro.props
+
+---
+
+<Layout>
+    <Header></Header>
+    <Hero title={civ.name}></Hero>
+
+    <section class="selections">
+        <nav class="selections__nav">
+            {civilizations.map((item) => (
+            <a href={`/civilizations/${item.name}`} class="selections__a">
+                <div class="selections__btn">
+                    <div class="selections__flag__div">
+                        <img src={item['flag-image']} alt={item.name} class="selections__flag"/>
+                    </div>
+                    
+                    <p class="selections__p">{item.name}</p>
+                </div>
+            </a>
+            ))}
+        </nav>
+        <section class="details" style={`--bg-url: url(${civ["civilization-image"]})`}>
+            <div class="details__card">
+
+                <h3 class="details__h3">
+                    {civ.title}
+                </h3>
+                <p class="details__p">
+                    {civ.description}
+                </p>
+            </div>
+        </section>
+    </section>
+
+    <Footer></Footer>
+</Layout>
+
+<style>
+.selections{
+    width: 100vw;
+    background-image: url(/img/swoosh.webp);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;
+}
+.selections__nav{
+    max-width: 1580px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 12px;
+    border-bottom: 3px solid;
+    border-image: linear-gradient(150deg , rgba(0, 0, 0, 0) 0% , rgba(184, 134, 45, 1) 50% , rgba(184, 134, 45, 0) 100% ) 1;
+}
+
+.selections__a{
+    max-width: 350px;
+    text-decoration: none;
+    color: var(--color-golden-light)
+}
+.selections__btn{
+	width: 100%;
+	height: 44px;
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	background: linear-gradient( 180deg , rgba(0, 62, 100, 1) 0% , rgba(0, 29, 52, 1) 100% ), url(/img/fondo_subnav.webp);
+	background-blend-mode: overlay;
+	gap: 1rem;
+}
+
+.selections__flag__div{
+	height: 44px;
+	padding: 12px;
+	background: linear-gradient( 180deg , rgba(0, 62, 100, 1) 0% , rgba(0, 29, 52, 1) 100% );
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.selections__flag{
+    width: 2rem;
+}
+
+/* INFO */
+
+.details{
+    width: 100%;
+    min-height: 700px;
+    background: linear-gradient(90deg, rgba(24, 28, 41, 1) 0% , rgba(24, 28, 41, 0) 100%), var(--bg-url);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 3rem;
+    padding-left: 10%;
+}
+.details__card{
+    max-width: 40%;
+    height: 100%;
+    background: linear-gradient(120deg, #d2c9ff36, var(--color-blue-midnight), #013f6300), url( ../../public/img/pattern_right.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    background-blend-mode: overlay;
+    padding: 3rem;
+    box-shadow: 0px 2px 8px rgba(27, 27, 27);
+}
+.details__h3{
+    max-width: 564px;
+    height: 100%;
+    color: var(--color-golden-light);
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+.details__p{
+    max-width: 564px;
+    height: 100%;
+    color: var(--color-text-details);
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+</style>
